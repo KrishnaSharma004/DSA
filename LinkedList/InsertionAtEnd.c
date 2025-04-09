@@ -12,18 +12,16 @@ void Display(struct node *ptr){
         ptr = ptr->next ;
     }
 }
-struct node* InsertionInBetween(struct node* head, int data,int index){
-    struct node *ptr = (struct node*)malloc(sizeof (struct node));
-    struct node *p= head;
-    int i = 0;
-    while(i!=index-1){
-        p=p->next;
-        i++;
-    }
+struct node* InsertionAtEnd(struct node* head, int data){
+    struct node* ptr = (struct node*)malloc(sizeof(struct node));
     ptr -> data = data;
-    ptr -> next = p->next;
-    p -> next = ptr;
-    return head; 
+    struct node *p = head;
+    while(p->next != NULL){
+        p=p->next;
+    }
+    p->next = ptr;
+    ptr->next = NULL;
+    return head;
 }
 int main(){
     struct node *head;
@@ -55,12 +53,9 @@ int main(){
 
     Display(head);
     int newData;
-    int index;// zero based indexing !!!!
     printf("Enter the Data you want to insert : ");
     scanf("%d",&newData);
-    printf("Enter the index at which you want insertion : ");
-    scanf("%d",&index);
-    head = InsertionInBetween(head,newData,index);
+    head = InsertionAtEnd(head,newData);
     Display(head);
 
     return 0;
