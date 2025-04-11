@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
+#define floop(i,a,b) for(int i=a;i<b;++i)
 struct node{
     int data;
     struct node *next;
@@ -14,7 +14,7 @@ void Display(struct node *ptr){
 struct node* DeletionAtIndex(struct node* head,int index){
     struct node* p= head;
     struct node* q= head->next;
-    for(int i=0;i<index-1;++i){
+    floop(i,0,index-1){
         p=p->next;
         q=q->next;
     }
