@@ -3,13 +3,16 @@
 using namespace std;
 #define nl endl
 
-void SelectionSort(int arr[],int n){
-    for(int i=0;i<n-1;++i){
-        int minindex=i;
-        for(int j=i+1;j<n;++j){
-            if(arr[j]<arr[minindex]) minindex=j;
+void Bubble_Sort(int arr[],int n){
+    for(int i=n-1;i>=0;i--){
+        int didswap = 0;
+        for(int j=0;j<=i-1;++j){
+            if(arr[j]>arr[j+1]) swap(arr[j],arr[j+1]);
+            didswap=1;
         }
-        swap(arr[minindex],arr[i]);
+        if(didswap==0){//Checking if there any swapping happend in the array; if no then break
+            break;
+        }
     }
 }
 int main(){
@@ -19,9 +22,10 @@ int main(){
     for(int i=0;i<size;++i) cout << array[i] << " " ;
     cout << nl;
     //sorting using selection sort
-    SelectionSort(array,size);
+    Bubble_Sort(array,size);
     cout << "Array after Sorting :" << nl;
     for(int i=0;i<size;++i) cout << array[i] << " ";
     return 0;
 }
-//T.C. : 0(n^2) {best,average,worst}
+//T.C. : 0(n^2) {average, worst}
+//0(n) {best case}

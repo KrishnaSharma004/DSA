@@ -1,39 +1,26 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#define nl endl 
-#define sp " "
-#define floop(i,a,b) for(int i=a;i<b;++i)
-#define ll long long
-#define vint vector<int>
 
-void InsertionSort(vint &arr,int n){
-    floop(i,1,n){
-        int key=arr[i];
-        int j=i-1;
-
-        while(j>=0 && arr[j]>key){
-            arr[j+1]=arr[j];
-            j=j-1;
+void Insertion_sort(int arr[],int n){
+    for(int i=0;i<=n-1;++i){
+        int j=i;
+        while(j>0 && arr[j-1]>arr[j]){
+            swap(arr[j],arr[j-1]);
+            j--;
         }
-        arr[j+1]=key;
     }
-}
-void printArray(vint &arr,int n){
-    floop(i,0,n){
-        cout << arr[i] << sp;
-    }
-    cout << nl;
 }
 int main(){
-    int n;
-    cin >> n;
-    vint arr(n);
-    floop(i,0,n){
-        cin >> arr[i];
-    }
-    InsertionSort(arr,n);
-    printArray(arr,n);
-    
+    int array[]={1,2,3,4,5,6,7,8,9,0};
+    int size=sizeof(array)/sizeof(array[0]);
+    cout << "Array before Sorting :" << endl;
+    for(int i=0;i<size;++i) cout << array[i] << " " ;
+    cout << endl;
+    //sorting using selection sort
+    Insertion_sort(array,size);
+    cout << "Array after Sorting :" << endl;
+    for(int i=0;i<size;++i) cout << array[i] << " ";
     return 0;
 }
+
