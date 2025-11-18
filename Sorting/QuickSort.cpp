@@ -43,7 +43,7 @@ void Print(vector<int> &arr,int n){
 //             i++;
 //         }
 //         while(arr[j]>pivot && j >= high+1){
-//             j++;
+//             j--;
 //         }
 //         if(i<j){
 //             swap(arr[i],arr[j]);
