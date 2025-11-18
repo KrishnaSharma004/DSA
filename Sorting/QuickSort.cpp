@@ -63,6 +63,8 @@ void Print(vector<int> &arr,int n){
 //     qs(arr,0,arr.size()-1);
 //     return arr;
 // }
+
+//T.C. : 0(n*logn) {best,average,worst}
 int main(){
     int n;
     cin >> n;
