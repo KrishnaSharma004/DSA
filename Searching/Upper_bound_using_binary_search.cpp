@@ -2,21 +2,21 @@
 #include <vector>
 using namespace std;
 
-int lower_bound(vector<int> &v,int element){
+int upper_bound(vector<int> &v,int element){
     int lo=0,hi=v.size()-1;
     int mid;
     while(hi-lo>1){
         mid =(lo+hi)/2;
-        if(v[mid]<element){
+        if(v[mid]<=element){
             lo = mid+1;
         }else{
             hi = mid;
         }
     }
-    if(v[lo]>=element){
+    if(v[lo]>element){
         return lo;
     }
-    if(v[hi]>=element){
+    if(v[hi]>element){
         return hi;
     }
     return -1;
@@ -31,10 +31,10 @@ int main(){
     } 
     int element;
     cin >> element;
-    /*If the vector is not input sorted or in a specific order the irst sort it the apply lower_bound 
-    Note : then the lower_bound function will return the idex accorgind to the sorted array */
+    /*If the vector is not input sorted or in a specific order the irst sort it the apply upper_bound 
+    Note : then the upper_bound function will return the idex accorgind to the sorted array */
     // sort(v.begin(),v.end());
-    int lb = lower_bound(v,element);
-    cout << lb <<  "  " << (lb != -1 ? v[lb] : -1) << endl; 
+    int ub = upper_bound(v,element);
+    cout << ub <<  "  " << (ub != -1 ? v[ub] : -1) << endl; 
     return 0;
 }
